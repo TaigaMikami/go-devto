@@ -37,7 +37,7 @@ func getJSON(req *http.Request, res interface{}) error {
 	return json.NewDecoder(resp.Body).Decode(res)
 }
 
-func GetQuery(action string, data, res interface{}) error {
+func GetWithQuery(action string, data, res interface{}) error {
 	req, err := http.NewRequest("GET", Origin+action, nil)
 	if err != nil {
 		return err
@@ -62,5 +62,14 @@ func GetQuery(action string, data, res interface{}) error {
 	}
 	req.URL.RawQuery = params.Encode()
 	fmt.Println(req.URL.String())
+	return getJSON(req, res)
+}
+
+func SimpleGet(action string, res interface{}) error {
+	req, err := http.NewRequest("GET", Origin+action, nil)
+	if err != nil {
+		return err
+	}
+
 	return getJSON(req, res)
 }

@@ -1,5 +1,7 @@
 package api
 
+import "strconv"
+
 type RetrieveArticlesOption struct {
 	Page         int
 	PerPage      int
@@ -26,8 +28,8 @@ type Article struct {
 	CoverImage           string       `json:"cover_image"`
 	ReadablePublishData  string       `json:"readable_publish_data"`
 	SocialImage          string       `json:"social_image"`
-	TagList              []string     `json:"tag_list"`
-	Tags                 string       `json:"tags"`
+	TagList              string       `json:"tag_list"`
+	Tags                 []string     `json:"tags"`
 	Slug                 string       `json:"slug"`
 	Path                 string       `json:"path"`
 	Url                  string       `json:"url"`
@@ -73,10 +75,19 @@ type Articles []*Article
 
 func (c *Client) RetrieveArticles(option *RetrieveArticlesOption) (*Articles, error) {
 	res := &Articles{}
-	err := GetQuery("/articles", option, res)
+	err := GetWithQuery("/articles", option, res)
 	if err != nil {
 		return nil, err
 	}
 
+	return res, nil
+}
+
+func (c *Client) RetrieveArticleById(id int) (*Article, error) {
+	res := &Article{}
+	err := SimpleGet("/articles/"+strconv.Itoa(id), res)
+	if err != nil {
+		return nil, err
+	}
 	return res, nil
 }
