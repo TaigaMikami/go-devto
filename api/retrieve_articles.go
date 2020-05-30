@@ -28,38 +28,6 @@ type Article struct {
 	CoverImage           string       `json:"cover_image"`
 	ReadablePublishData  string       `json:"readable_publish_data"`
 	SocialImage          string       `json:"social_image"`
-	TagList              []string     `json:"tag_list"`
-	Tags                 string       `json:"tags"`
-	Slug                 string       `json:"slug"`
-	Path                 string       `json:"path"`
-	Url                  string       `json:"url"`
-	CanonicalUrl         string       `json:"canonical_url"`
-	CommentsCount        int          `json:"comments_count"`
-	PublicReactionsCount int          `json:"public_reactions_count"`
-	CreatedAt            string       `json:"created_at"`
-	EditedAt             string       `json:"edited_at"`
-	CrosspostedAt        string       `json:"crossposted_at"`
-	PublishedAt          string       `json:"published_at"`
-	LastCommentAt        string       `json:"last_comment_at"`
-	PublishedTimestamp   string       `json:"published_timestamp"`
-	User                 User         `json:"user"`
-	Organization         Organization `json:"organization"`
-	FlareTag             FlareTag     `json:"flare_tag"`
-}
-
-// [tmp] GET /articles and GET /articles/:id have reversed taglist and tags formats in json
-// https://docs.dev.to/api/#operation/getArticles
-// https://docs.dev.to/api/#operation/getArticleById
-type ArticleById struct {
-	TypeOf               string       `json:"type_of"`
-	Id                   int          `json:"id"`
-	Title                string       `json:"title"`
-	Description          string       `json:"description"`
-	CoverImage           string       `json:"cover_image"`
-	ReadablePublishData  string       `json:"readable_publish_data"`
-	SocialImage          string       `json:"social_image"`
-	TagList              string       `json:"tag_list"`
-	Tags                 []string     `json:"tags"`
 	Slug                 string       `json:"slug"`
 	Path                 string       `json:"path"`
 	Url                  string       `json:"url"`
@@ -111,8 +79,8 @@ func (c *Client) RetrieveArticles(option *RetrieveArticlesOption) ([]*Article, e
 	return res, nil
 }
 
-func (c *Client) RetrieveArticleById(id int) (*ArticleById, error) {
-	res := &ArticleById{}
+func (c *Client) RetrieveArticleById(id int) (*Article, error) {
+	res := &Article{}
 	err := SimpleGet("/articles/"+strconv.Itoa(id), res)
 	if err != nil {
 		return nil, err
