@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/TaigaMikami/go-dev/api"
+	"github.com/TaigaMikami/go-devto/api"
 	"github.com/k0kubun/pp"
 )
 

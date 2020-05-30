@@ -3,7 +3,7 @@ package api
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/TaigaMikami/go-dev/util"
+	"github.com/TaigaMikami/go-devto/util"
 	"github.com/k0kubun/pp"
 	"net/http"
 	"reflect"
