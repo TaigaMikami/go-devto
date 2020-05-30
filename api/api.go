@@ -2,7 +2,6 @@ package api
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/TaigaMikami/go-devto/util"
 	"github.com/k0kubun/pp"
 	"net/http"
@@ -61,7 +60,6 @@ func GetWithQuery(action string, data, res interface{}) error {
 		}
 	}
 	req.URL.RawQuery = params.Encode()
-	fmt.Println(req.URL.String())
 	return getJSON(req, res)
 }
 
