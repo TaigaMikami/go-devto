@@ -1,4 +1,7 @@
-![icatche](https://user-images.githubusercontent.com/25325947/83355285-723ac780-a399-11ea-9413-2689f86671de.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/25325947/83355285-723ac780-a399-11ea-9413-2689f86671de.png" />
+</p>
+
 # go-devto
 ![Test](https://github.com/TaigaMikami/go-devto/workflows/Test/badge.svg)
 
