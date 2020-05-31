@@ -4,6 +4,7 @@
 
 # go-devto
 ![Test](https://github.com/TaigaMikami/go-devto/workflows/Test/badge.svg)
+![License](https://img.shields.io/github/license/TaigaMikami/go-devto)
 
 This is a Go wrapper for working with [DEV API](https://docs.dev.to/api/).
 
