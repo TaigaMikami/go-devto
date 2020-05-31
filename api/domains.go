@@ -20,6 +20,7 @@ type Article struct {
 }
 
 type User struct {
+	Id              int    `json:"id"`
 	Name            string `json:"name"`
 	Username        string `json:"username"`
 	TwitterUsername string `json:"twitter_username"`

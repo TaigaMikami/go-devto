@@ -18,7 +18,7 @@ func (c *Client) RetrieveComments(option *RetrieveCommentsOption) ([]*Comment, e
 /* GET /comments/:id */
 func (c *Client) RetrieveCommentById(id string) (*Comment, error) {
 	res := &Comment{}
-	err := SimpleGet("/comments/"+id, res)
+	err := SimpleGet("/comments/"+id, c.ApiKey, res)
 	if err != nil {
 		return nil, err
 	}

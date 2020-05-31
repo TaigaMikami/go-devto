@@ -39,7 +39,7 @@ func (c *Client) RetrieveArticles(option *RetrieveArticlesOption) ([]*Article, e
 /* GET /articles/:id */
 func (c *Client) RetrieveArticleById(id int) (*Article, error) {
 	res := &Article{}
-	err := SimpleGet("/articles/"+strconv.Itoa(id), res)
+	err := SimpleGet("/articles/"+strconv.Itoa(id), c.ApiKey, res)
 	if err != nil {
 		return nil, err
 	}
@@ -117,7 +117,6 @@ func (c *Client) AddArticle(option *DraftArticle) (*Article, error) {
 	return res, nil
 }
 
-/* PUT /articles/:id */
 func (c *Client) ModifyArticle(id int, option *DraftArticle) (*Article, error) {
 	var res *Article
 	err := PutWithJSON("/articles/"+strconv.Itoa(id), c.ApiKey, option, &res)

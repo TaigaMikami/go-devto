@@ -38,11 +38,12 @@ func getJSON(req *http.Request, res interface{}) error {
 	return json.NewDecoder(resp.Body).Decode(res)
 }
 
-func SimpleGet(action string, res interface{}) error {
+func SimpleGet(action, auth string, res interface{}) error {
 	req, err := http.NewRequest("GET", Origin+action, nil)
 	if err != nil {
 		return err
 	}
+	req.Header.Set("api-key", auth)
 
 	return getJSON(req, res)
 }

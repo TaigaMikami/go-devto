@@ -62,18 +62,28 @@ import (
 //	pp.Print(res)
 //}
 
-func main() {
-	opt := &api.DraftArticle{
-		Article: api.ArticleContent{
-			Title:        "Hello, World! modify",
-			Published:    false,
-			BodyMarkdown: "Hello DEV, this is my first post modify",
-			Tags:         []string{"discuss", "javascript"},
-		},
-	}
+//func main() {
+//	opt := &api.DraftArticle{
+//		Article: api.ArticleContent{
+//			Title:        "Hello, World! modify",
+//			Published:    false,
+//			BodyMarkdown: "Hello DEV, this is my first post modify",
+//			Tags:         []string{"discuss", "javascript"},
+//		},
+//	}
+//
+//	client := api.NewClient("")
+//	res, err := client.ModifyArticle(346946, opt)
+//	if err != nil {
+//		panic(err)
+//	}
+//
+//	pp.Print(res)
+//}
 
-	client := api.NewClient("")
-	res, err := client.ModifyArticle(346946, opt)
+func main() {
+	client := api.NewClient("BvGbopywQrMEFaiNHsNFLsGZ")
+	res, err := client.RetrieveAuthenticatedUser()
 	if err != nil {
 		panic(err)
 	}
