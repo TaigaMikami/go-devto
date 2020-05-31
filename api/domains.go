@@ -53,3 +53,11 @@ type VideoArticle struct {
 	VideoDurationInMinutes string `json:"video_duration_in_minutes"`
 	User                   User   `json:"user"`
 }
+
+type Comment struct {
+	TypeOf   string     `json:"type_of"`
+	IdCode   string     `json:"id_code"`
+	BodyHtml string     `json:"body_html"`
+	User     User       `json:"user"`
+	Children []*Comment `json:"children"`
+}
