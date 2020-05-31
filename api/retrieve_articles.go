@@ -25,6 +25,7 @@ type RetrieveUserArticlesOption struct {
 	PerPage int
 }
 
+/* GET /articles */
 func (c *Client) RetrieveArticles(option *RetrieveArticlesOption) ([]*Article, error) {
 	var res []*Article
 	err := GetWithQuery("/articles", c.ApiKey, option, &res)
@@ -35,6 +36,7 @@ func (c *Client) RetrieveArticles(option *RetrieveArticlesOption) ([]*Article, e
 	return res, nil
 }
 
+/* GET /articles/:id */
 func (c *Client) RetrieveArticleById(id int) (*Article, error) {
 	res := &Article{}
 	err := SimpleGet("/articles/"+strconv.Itoa(id), res)
@@ -44,6 +46,7 @@ func (c *Client) RetrieveArticleById(id int) (*Article, error) {
 	return res, nil
 }
 
+/* GET /articles/me */
 func (c *Client) RetrieveUserArticles(option *RetrieveUserArticlesOption) ([]*Article, error) {
 	var res []*Article
 	err := GetWithQuery("/articles/me/published", c.ApiKey, option, &res)
