@@ -11,7 +11,7 @@ The aim is to be able to do all tasks on this DEV API endpoint simply by getting
 
 ## Install
 ```
-go get github.com/TaigaMikami/go-devto/...
+go get github.com/TaigaMikami/go-devto/api
 ```
 
 ## Usage
@@ -20,6 +20,13 @@ go get github.com/TaigaMikami/go-devto/...
 2. eg.) Retrieve articles and Output an article's title.
 
 ```go
+package main
+
+import (
+	"fmt"
+	"github.com/TaigaMikami/go-devto/api"
+)
+
 func main() {
 	opt := &api.RetrieveArticlesOption{
 		Page: 1,
@@ -30,7 +37,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	
+
 	fmt.Println(res[0].Title)
 }
 ```
