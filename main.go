@@ -6,15 +6,28 @@ import (
 )
 
 func main() {
-	opt := &api.RetrieveVideoArticlesOption{
+	opt := &api.RetrieveFollowersOption{
 		Page:    1,
 		PerPage: 1,
 	}
 
 	client := api.NewClient("")
-	res, err := client.RetrieveVideoArticles(opt)
+	res, err := client.RetrieveFollowers(opt)
 	if err != nil {
 		panic(err)
 	}
 	pp.Print(res)
 }
+
+//func main() {
+//	opt := &api.RetrieveCommentsOption{
+//		AId: 270180,
+//	}
+//
+//	client := api.NewClient("")
+//	res, err := client.RetrieveComments(opt)
+//	if err != nil {
+//		panic(err)
+//	}
+//	pp.Print(res)
+//}

@@ -61,3 +61,12 @@ type Comment struct {
 	User     User       `json:"user"`
 	Children []*Comment `json:"children"`
 }
+
+type Follower struct {
+	TypeOf       string `json:"type_of"`
+	Id           int    `json:"id"`
+	Name         string `json:"name"`
+	Path         string `json:"path"`
+	Username     string `json:"username"`
+	ProfileImage string `json:"profile_image"`
+}
