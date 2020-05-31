@@ -1,7 +1,8 @@
+![icatche](https://user-images.githubusercontent.com/25325947/83355285-723ac780-a399-11ea-9413-2689f86671de.png)
 # go-devto
 ![Test](https://github.com/TaigaMikami/go-devto/workflows/Test/badge.svg)
 
-This is a Go wrapper for working with [DEV API](https://docs.dev.to/api/)
+This is a Go wrapper for working with [DEV API](https://docs.dev.to/api/).
 
 The aim is to be able to do all tasks on this DEV API endpoint simply by getting an API key.
 
@@ -10,6 +11,27 @@ The aim is to be able to do all tasks on this DEV API endpoint simply by getting
 go get github.com/TaigaMikami/go-devto/...
 ```
 
+## Usage
+1. Visit https://dev.to/settings/account and Get API key.
+
+2. eg.) Retrieve articles and Output an article's title.
+
+```go
+func main() {
+	opt := &api.RetrieveArticlesOption{
+		Page: 1,
+		PerPage: 10,
+	}
+	client := api.NewClient("API Key")
+	res, err := client.RetrieveArticles(opt)
+	if err != nil {
+		panic(err)
+	}
+	
+	fmt.Println(res[0].Title)
+}
+```
+
 ## API Examples
-coming soon
+Examples of the API can be found in the [examples]() directory.
 

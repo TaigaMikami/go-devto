@@ -1,10 +1,5 @@
 package main
 
-import (
-	"github.com/TaigaMikami/go-devto/api"
-	"github.com/k0kubun/pp"
-)
-
 //func main() {
 //	opt := &api.RetrieveFollowersOption{
 //		Page:    1,
@@ -81,12 +76,26 @@ import (
 //	pp.Print(res)
 //}
 
-func main() {
-	client := api.NewClient("BvGbopywQrMEFaiNHsNFLsGZ")
-	res, err := client.RetrieveAuthenticatedUser()
-	if err != nil {
-		panic(err)
-	}
+//func main() {
+//	client := api.NewClient("BvGbopywQrMEFaiNHsNFLsGZ")
+//	res, err := client.RetrieveAuthenticatedUser()
+//	if err != nil {
+//		panic(err)
+//	}
+//
+//	pp.Print(res)
+//}
 
-	pp.Print(res)
-}
+//func main() {
+//	opt := &api.RetrieveArticlesOption{
+//		Page:    1,
+//		PerPage: 10,
+//	}
+//	client := api.NewClient("")
+//	res, err := client.RetrieveArticles(opt)
+//	if err != nil {
+//		panic(err)
+//	}
+//
+//	fmt.Println(res[0].Title)
+//}
