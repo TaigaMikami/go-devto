@@ -5,7 +5,7 @@ import "testing"
 func TestRetrievePodcastEpisodes(t *testing.T) {
 	typeOf := "podcast_episodes"
 	client := NewClient("")
-	opt := &RetrievePodcast{
+	opt := &RetrievePodcastOption{
 		Page:    1,
 		PerPage: 1,
 	}
