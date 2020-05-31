@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"github.com/TaigaMikami/go-devto/devto"
+)
+
 //func main() {
 //	opt := &api.RetrieveFollowersOption{
 //		Page:    1,
@@ -86,16 +91,16 @@ package main
 //	pp.Print(res)
 //}
 
-//func main() {
-//	opt := &api.RetrieveArticlesOption{
-//		Page:    1,
-//		PerPage: 10,
-//	}
-//	client := api.NewClient("")
-//	res, err := client.RetrieveArticles(opt)
-//	if err != nil {
-//		panic(err)
-//	}
-//
-//	fmt.Println(res[0].Title)
-//}
+func main() {
+	opt := &devto.RetrieveArticlesOption{
+		Page:    1,
+		PerPage: 10,
+	}
+	client := devto.NewClient("")
+	res, err := client.RetrieveArticles(opt)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(res[0].Title)
+}

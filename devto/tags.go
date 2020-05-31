@@ -1,4 +1,4 @@
-package api
+package devto
 
 type RetrieveTagsOption struct {
 	Page    int

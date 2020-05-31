@@ -1,4 +1,4 @@
-package api
+package devto
 
 type RetrievePodcastOption struct {
 	Page     int

@@ -12,7 +12,7 @@ The aim is to be able to do all tasks on this DEV API endpoint simply by getting
 
 ## Install
 ```
-go get github.com/TaigaMikami/go-devto/api
+go get github.com/TaigaMikami/go-devto/devto
 ```
 
 ## Usage
@@ -25,15 +25,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/TaigaMikami/go-devto/api"
+	"github.com/TaigaMikami/go-devto/devto"
 )
 
 func main() {
-	opt := &api.RetrieveArticlesOption{
+	opt := &devto.RetrieveArticlesOption{
 		Page: 1,
 		PerPage: 10,
 	}
-	client := api.NewClient("API Key")
+	client := devto.NewClient("API Key")
 	res, err := client.RetrieveArticles(opt)
 	if err != nil {
 		panic(err)

@@ -1,4 +1,4 @@
-package api
+package devto
 
 type Article struct {
 	TypeOf               string       `json:"type_of"`

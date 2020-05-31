@@ -1,4 +1,4 @@
-package api
+package devto
 
 type RetrieveFollowersOption struct {
 	Page    int

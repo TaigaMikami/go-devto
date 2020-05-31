@@ -1,4 +1,4 @@
-package api
+package devto
 
 type RetrieveCommentsOption struct {
 	AId int
