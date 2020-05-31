@@ -106,3 +106,18 @@ func PostWithJSON(action, auth string, data, res interface{}) error {
 
 	return postJSON(req, res)
 }
+
+func PutWithJSON(action, auth string, data, res interface{}) error {
+	body, err := json.Marshal(data)
+	if err != nil {
+		return err
+	}
+
+	req, err := http.NewRequest("PUT", Origin+action, bytes.NewBuffer(body))
+	if err != nil {
+		return err
+	}
+	req.Header.Set("api-key", auth)
+
+	return postJSON(req, res)
+}
