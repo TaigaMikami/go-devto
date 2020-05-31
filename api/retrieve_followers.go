@@ -8,7 +8,7 @@ type RetrieveFollowersOption struct {
 /* GET /followers/users */
 func (c *Client) RetrieveFollowers(option *RetrieveFollowersOption) ([]*Follower, error) {
 	var res []*Follower
-	err := GetWithQuery("/articles/me", c.ApiKey, option, &res)
+	err := GetWithQuery("/followers/users", c.ApiKey, option, &res)
 	if err != nil {
 		return nil, err
 	}
