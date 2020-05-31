@@ -89,3 +89,30 @@ func (c *Client) RetrieveUserAllArticles(option *RetrieveUserArticlesOption) ([]
 
 	return res, nil
 }
+
+type ArticleContent struct {
+	Title          string   `json:"title"`
+	BodyMarkdown   string   `json:"body_markdown"`
+	Published      bool     `json:"published"`
+	Series         string   `json:"series"`
+	MainImage      string   `json:"main_image"`
+	CanonicalUrl   string   `json:"canonical_url"`
+	Description    string   `json:"description"`
+	Tags           []string `json:"tags"`
+	OrganizationId int      `json:"organization_id"`
+}
+
+type DraftArticle struct {
+	Article ArticleContent `json:"article"`
+}
+
+/* POST /articles */
+func (c *Client) AddArticle(option *DraftArticle) (*Article, error) {
+	var res *Article
+	err := PostWithJSON("/articles", c.ApiKey, option, &res)
+	if err != nil {
+		return nil, err
+	}
+
+	return res, nil
+}

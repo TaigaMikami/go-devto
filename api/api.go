@@ -1,7 +1,9 @@
 package api
 
 import (
+	"bytes"
 	"encoding/json"
+	"fmt"
 	"github.com/TaigaMikami/go-devto/util"
 	"github.com/k0kubun/pp"
 	"net/http"
@@ -72,4 +74,35 @@ func GetWithQuery(action, auth string, data, res interface{}) error {
 	}
 	req.URL.RawQuery = params.Encode()
 	return getJSON(req, res)
+}
+
+func postJSON(req *http.Request, res interface{}) error {
+	req.Header.Add("Content-Type", "application/json")
+
+	resp, err := DefaultClient.Do(req)
+	if err != nil {
+		return err
+	}
+
+	if resp.StatusCode != 201 {
+		fmt.Println(resp)
+	}
+	defer resp.Body.Close()
+	return json.NewDecoder(resp.Body).Decode(res)
+}
+
+func PostWithJSON(action, auth string, data, res interface{}) error {
+	body, err := json.Marshal(data)
+	if err != nil {
+		return err
+	}
+
+	req, err := http.NewRequest("POST", Origin+action, bytes.NewBuffer(body))
+	if err != nil {
+		return err
+	}
+
+	req.Header.Set("api-key", auth)
+
+	return postJSON(req, res)
 }
