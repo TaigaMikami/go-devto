@@ -70,3 +70,18 @@ type Follower struct {
 	Username     string `json:"username"`
 	ProfileImage string `json:"profile_image"`
 }
+
+type PodcastEpisode struct {
+	TypeOf   string  `json:"type_of"`
+	Id       int     `json:"id"`
+	path     string  `json:"path"`
+	ImageUrl string  `json:"image_url"`
+	Title    string  `json:"title"`
+	Podcast  Podcast `json:"podcast"`
+}
+
+type Podcast struct {
+	Title    string `json:"title"`
+	Slug     string `json:"slug"`
+	ImageUrl string `json:"image_url"`
+}
