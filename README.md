@@ -10,6 +10,6 @@ The aim is to be able to do all tasks on this DEV API endpoint simply by getting
 go get github.com/TaigaMikami/go-devto/...
 ```
 
-### API Examples
+## API Examples
 coming soon
 
