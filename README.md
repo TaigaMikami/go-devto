@@ -33,5 +33,5 @@ func main() {
 ```
 
 ## API Examples
-Examples of the API can be found in the [examples]() directory.
+Examples of the API can be found in the [examples](https://github.com/TaigaMikami/go-devto/tree/master/example) directory.
 
