@@ -85,3 +85,10 @@ type Podcast struct {
 	Slug     string `json:"slug"`
 	ImageUrl string `json:"image_url"`
 }
+
+type Tag struct {
+	Id           int    `json:"id"`
+	Name         string `json:"name"`
+	BgColorHex   string `json:"bg_color_hex"`
+	TextColorHex string `json:"text_color_hex"`
+}
