@@ -36,11 +36,22 @@ func getJSON(req *http.Request, res interface{}) error {
 	return json.NewDecoder(resp.Body).Decode(res)
 }
 
-func GetWithQuery(action string, data, res interface{}) error {
+func SimpleGet(action string, res interface{}) error {
 	req, err := http.NewRequest("GET", Origin+action, nil)
 	if err != nil {
 		return err
 	}
+
+	return getJSON(req, res)
+}
+
+func GetWithQuery(action, auth string, data, res interface{}) error {
+	req, err := http.NewRequest("GET", Origin+action, nil)
+	if err != nil {
+		return err
+	}
+
+	req.Header.Set("api-key", auth)
 
 	// generate query parameter
 	params := req.URL.Query()
@@ -60,14 +71,5 @@ func GetWithQuery(action string, data, res interface{}) error {
 		}
 	}
 	req.URL.RawQuery = params.Encode()
-	return getJSON(req, res)
-}
-
-func SimpleGet(action string, res interface{}) error {
-	req, err := http.NewRequest("GET", Origin+action, nil)
-	if err != nil {
-		return err
-	}
-
 	return getJSON(req, res)
 }

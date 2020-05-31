@@ -20,9 +20,14 @@ const (
 	StateAll          = "all"
 )
 
+type RetrieveUserArticlesOption struct {
+	Page    int
+	PerPage int
+}
+
 func (c *Client) RetrieveArticles(option *RetrieveArticlesOption) ([]*Article, error) {
 	var res []*Article
-	err := GetWithQuery("/articles", option, &res)
+	err := GetWithQuery("/articles", c.ApiKey, option, &res)
 	if err != nil {
 		return nil, err
 	}
@@ -36,5 +41,15 @@ func (c *Client) RetrieveArticleById(id int) (*Article, error) {
 	if err != nil {
 		return nil, err
 	}
+	return res, nil
+}
+
+func (c *Client) RetrieveUserArticles(option *RetrieveUserArticlesOption) ([]*Article, error) {
+	var res []*Article
+	err := GetWithQuery("/articles/me/published", c.ApiKey, option, &res)
+	if err != nil {
+		return nil, err
+	}
+
 	return res, nil
 }

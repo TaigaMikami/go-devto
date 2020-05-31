@@ -6,19 +6,13 @@ type Article struct {
 	Title                string       `json:"title"`
 	Description          string       `json:"description"`
 	CoverImage           string       `json:"cover_image"`
-	ReadablePublishData  string       `json:"readable_publish_data"`
-	SocialImage          string       `json:"social_image"`
 	Slug                 string       `json:"slug"`
 	Path                 string       `json:"path"`
 	Url                  string       `json:"url"`
 	CanonicalUrl         string       `json:"canonical_url"`
 	CommentsCount        int          `json:"comments_count"`
 	PublicReactionsCount int          `json:"public_reactions_count"`
-	CreatedAt            string       `json:"created_at"`
-	EditedAt             string       `json:"edited_at"`
-	CrosspostedAt        string       `json:"crossposted_at"`
 	PublishedAt          string       `json:"published_at"`
-	LastCommentAt        string       `json:"last_comment_at"`
 	PublishedTimestamp   string       `json:"published_timestamp"`
 	User                 User         `json:"user"`
 	Organization         Organization `json:"organization"`
