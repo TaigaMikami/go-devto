@@ -6,13 +6,13 @@ import (
 )
 
 func main() {
-	opt := &api.RetrieveUserArticlesOption{
+	opt := &api.RetrieveVideoArticlesOption{
 		Page:    1,
 		PerPage: 1,
 	}
 
 	client := api.NewClient("")
-	res, err := client.RetrieveUserAllArticles(opt)
+	res, err := client.RetrieveVideoArticles(opt)
 	if err != nil {
 		panic(err)
 	}

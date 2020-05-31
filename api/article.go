@@ -42,3 +42,14 @@ type FlareTag struct {
 	BgColorHex   string `json:"bg_color_hex"`
 	TextColorHex string `json:"text_color_hex"`
 }
+
+type VideoArticle struct {
+	TypeOf                 string `json:"type_of"`
+	Id                     int    `json:"id"`
+	Path                   string `json:"path"`
+	CloudinaryVideoUrl     string `json:"cloudinary_video_url"`
+	Title                  string `json:"title"`
+	UserId                 int    `json:"user_id"`
+	VideoDurationInMinutes string `json:"video_duration_in_minutes"`
+	User                   User   `json:"user"`
+}

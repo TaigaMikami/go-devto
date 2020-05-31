@@ -25,6 +25,11 @@ type RetrieveUserArticlesOption struct {
 	PerPage int
 }
 
+type RetrieveVideoArticlesOption struct {
+	Page    int
+	PerPage int
+}
+
 /* GET /articles */
 func (c *Client) RetrieveArticles(option *RetrieveArticlesOption) ([]*Article, error) {
 	var res []*Article
@@ -83,6 +88,17 @@ func (c *Client) RetrieveUserUnpublishedArticles(option *RetrieveUserArticlesOpt
 func (c *Client) RetrieveUserAllArticles(option *RetrieveUserArticlesOption) ([]*Article, error) {
 	var res []*Article
 	err := GetWithQuery("/articles/me/all", c.ApiKey, option, &res)
+	if err != nil {
+		return nil, err
+	}
+
+	return res, nil
+}
+
+/* GET /videos */
+func (c *Client) RetrieveVideoArticles(option *RetrieveVideoArticlesOption) ([]*VideoArticle, error) {
+	var res []*VideoArticle
+	err := GetWithQuery("/articles", c.ApiKey, option, &res)
 	if err != nil {
 		return nil, err
 	}
